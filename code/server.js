@@ -2,21 +2,14 @@
  * File Server 
  */
 
-var http = require('http');
-var fs = require('fs');
+var express = require('express');
+var app     = express();
+var path    = require('path');
 var portNo = 1337;
 
-http.createServer(function(request, response){
-    
-    response.writeHead(200, {
-        'Content-Type': 'text/html',
-        'Access-Control-Allow-Origin' : '*'
-    });
+app.get('/', function(request, response) {
+    response.sendFile(path.join(__dirname + '/index.html'));
+});
 
-    var readStream = fs.createReadStream(__dirname + '/index.html');
-  
-    readStream.pipe(response);
-    
-}).listen(portNo);
-
+app.listen(portNo);
 console.log('Servidor iniciado al puerto ' + portNo);

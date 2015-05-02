@@ -1,4 +1,7 @@
 {
-    "name": "GestionWeb2",
-    "main": "server.js"
+  "name": "GestionWeb2",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
 }
