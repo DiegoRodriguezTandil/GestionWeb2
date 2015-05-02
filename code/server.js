@@ -8,14 +8,14 @@ var portNo = 1337;
 
 http.createServer(function(request, response){
     
-    res.writeHead(200, {
+    response.writeHead(200, {
         'Content-Type': 'text/html',
         'Access-Control-Allow-Origin' : '*'
     });
 
     var readStream = fs.createReadStream(__dirname + '/index.html');
   
-    readStream.pipe(res);
+    readStream.pipe(response);
     
 }).listen(portNo);
 
