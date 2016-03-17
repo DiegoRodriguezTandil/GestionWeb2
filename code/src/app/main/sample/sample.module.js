@@ -39,6 +39,7 @@
             group : true,
             weight: 1
         });
+        
 
         msNavigationServiceProvider.saveItem('fuse.sample', {
             title    : 'Sample',
@@ -50,5 +51,6 @@
             translate: 'SAMPLE.SAMPLE_NAV',
             weight   : 1
         });
+
     }
 })();
