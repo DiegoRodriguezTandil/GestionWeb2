@@ -20,7 +20,10 @@
             // Quick panel
             'app.quick-panel',
 
-            // Sample
-            'app.sample'
+            'app.sample',
+
+            // Apps
+            'app.qwavee.ventas',
+//            'app.qwavee.cliente',
         ]);
 })();
