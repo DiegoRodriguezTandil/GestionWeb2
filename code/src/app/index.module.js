@@ -19,11 +19,18 @@
 
             // Quick panel
             'app.quick-panel',
-
+            
+            // Libs 
+            'cfp.hotkeys',
+            
+            // Functionality
             'app.sample',
 
             // Apps
             'app.qwavee.ventas',
 //            'app.qwavee.cliente',
+
+            'app.ciudad',
+            
         ]);
 })();
