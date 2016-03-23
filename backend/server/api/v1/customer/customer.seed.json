@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Diego Rodriguez",
+        "cuit": "20-25452630-5",
+        "active": true,
+        "address": {
+            "street": "11 de Septiembre",
+            "number": 241,
+            "dpto": null,
+            "city": "Tandil",
+            "zip": "7000"
+        }
+    },
+    {
+        "name": "Koqui Pizzi",
+        "cuit": "20-26254665-0",
+        "active": true,
+        "address": {
+            "street": "11 de Septiembre",
+            "number": 241,
+            "dpto": null,
+            "city": "Tandil",
+            "zip": "7000"
+        }
+    }
+]

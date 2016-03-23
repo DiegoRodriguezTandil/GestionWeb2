@@ -6,6 +6,7 @@
 'use strict';
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
+import Customer from '../api/v1/customer/customer.model';
 
 Thing.find({}).removeAsync()
   .then(function() {
@@ -37,7 +38,7 @@ Thing.find({}).removeAsync()
       info: 'Easily deploy your app to Heroku or Openshift with the heroku ' +
              'and openshift subgenerators'
     });
-  });
+  });  
 
 User.find({}).removeAsync()
   .then(function() {
@@ -55,5 +56,38 @@ User.find({}).removeAsync()
     })
     .then(function() {
       console.log('finished populating users');
+    });
+  });
+
+////////////////////////////////////////////////
+// GestionWeb2 
+
+Customer.find({}).removeAsync()
+  .then(function() {
+    Customer.createAsync({
+        "name": "Diego Rodriguez",
+        "cuit": "20-25452630-5",
+        "active": true,
+        "address": {
+            "street": "11 de Septiembre",
+            "number": 241,
+            "dpto": null,
+            "city": "Tandil",
+            "zip": "7000"
+        }
+    },{
+        "name": "Koqui Pizzi",
+        "cuit": "20-25452630-5",
+        "active": true,
+        "address": {
+            "street": "11 de Septiembre",
+            "number": 241,
+            "dpto": null,
+            "city": "Tandil",
+            "zip": "7000"
+        }
+    })
+    .then(function() {
+      console.log('finished populating Customer');
     });
   });
