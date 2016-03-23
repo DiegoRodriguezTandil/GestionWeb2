@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('app.qwavee.cliente', [])
+        .module('app.qwavee.cliente', ['ngResource'])
         .config(config);
 
     /** @ngInject */
@@ -18,12 +18,12 @@
                     controller : 'ClienteController as vm'
                 }
             },
-            resolve  : {
-                Clientes: function (msApi)
-                {
-                    return msApi.resolve('cliente@get');
-                }
-            },
+//            resolve  : {
+//                Clientes: function (msApi)
+//                {
+//                    return msApi.resolve('cliente@get');
+//                }
+//            },
 //            bodyClass: 'mail'
         });
 
@@ -31,7 +31,7 @@
         $translatePartialLoaderProvider.addPart('app/main/qwavee.cliente');
 
         // Api
-        msApiProvider.register('cliente', ['app/data/cliente/cliente.json']);
+//        msApiProvider.register('cliente', ['app/data/cliente/cliente.json']);
 
         // Navigation
 //        msNavigationServiceProvider.saveItem('ventas', {
