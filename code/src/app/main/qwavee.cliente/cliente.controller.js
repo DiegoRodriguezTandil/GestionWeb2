@@ -8,9 +8,13 @@
         .factory('ClienteService', ClienteServiceFn);
 
     /** @ngInject */
-    function ClienteController(hotkeys, ClienteService)
+    function ClienteController(hotkeys, api)
     {
         var vm = this;
+        
+        vm.error = false;
+        
+        vm.clientes = [];
 //        vm.volume = 3;
 //        
 //        hotkeys.add({
@@ -23,32 +27,18 @@
 //        });        
 
         // Data
-        vm.clientes = ClienteService.getClientes();
+        api.clientes.get({},
+            function(response)
+            {
+                vm.clientes = response;
+            },
+            function(error)
+            {
+                vm.error = error;
+            }
+        );
         // Methods
 
-        //////////
     }
-    
-    
-    function ClienteServiceFn($resource){
         
-        var dataFactory = { } ;
-        
-        dataFactory.getClientes = function(){
-            return $resource(
-                    "http://localhost:9000/api/v1/customers/",
-                    {},
-                    {
-                        'get': {
-                            method:'GET', 
-                            isArray: true
-                        }
-                    })
-                .get();
-        }
-        
-        return dataFactory;
-        
-    }
-    
 })();

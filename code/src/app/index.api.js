@@ -179,6 +179,16 @@
 
         // Base Url
         api.baseUrl = 'app/data/';
+        
+        // Cliente API
+        api.clientes = $resource('http://localhost:9000/api/v1/customers/',{},
+            {
+                get: {
+                    method:'GET', 
+                    isArray: true
+                }
+            }                    
+        );
 
         // api.sample = $resource(api.baseUrl + 'sample/sample.json');
 

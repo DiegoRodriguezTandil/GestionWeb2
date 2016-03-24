@@ -28,7 +28,6 @@
 
             // Apps
             'app.qwavee.ventas',
-//            'app.qwavee.cliente',
 
             'app.ciudad',
             
