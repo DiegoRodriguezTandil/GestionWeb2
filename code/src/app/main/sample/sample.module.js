@@ -3,7 +3,11 @@
     'use strict';
 
     angular
-        .module('app.sample', [])
+        .module('app.sample', [
+            'app.dashboards.project',
+            'app.dashboards.server',
+            'app.dashboards.analytics'
+        ])
         .config(config);
 
     /** @ngInject */
@@ -34,10 +38,17 @@
         msApiProvider.register('sample', ['app/data/sample/sample.json']);
 
         // Navigation
+        msNavigationServiceProvider.saveItem('fuse.project', {
+            title: 'Casa Sebastián',
+            state: 'app.dashboards_project',
+            icon : 'icon-home',
+            weight: 1
+        });
+        
         msNavigationServiceProvider.saveItem('fuse', {
             title : 'SAMPLE',
             group : true,
-            weight: 1
+//            weight: 1
         });
         
 
@@ -51,6 +62,14 @@
             translate: 'SAMPLE.SAMPLE_NAV',
             weight   : 1
         });
+       
+
+        msNavigationServiceProvider.saveItem('fuse.project', {
+            title: 'Project',
+            state: 'app.dashboards_project',
+            icon : 'icon-home',
+        });
+
 
     }
 })();
