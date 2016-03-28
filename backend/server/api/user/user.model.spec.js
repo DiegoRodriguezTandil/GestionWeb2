@@ -8,6 +8,7 @@ var genUser = function() {
     provider: 'local',
     name: 'Fake User',
     email: 'test@example.com',
+    username: 'test',
     password: 'password'
   });
   return user;
@@ -43,6 +44,13 @@ describe('User Model', function() {
   describe('#email', function() {
     it('should fail when saving without an email', function() {
       user.email = '';
+      return user.saveAsync().should.be.rejected;
+    });
+  });
+
+  describe('#username', function() {
+    it('should fail when saving without an username', function() {
+      user.username = '';
       return user.saveAsync().should.be.rejected;
     });
   });

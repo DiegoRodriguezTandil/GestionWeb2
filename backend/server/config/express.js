@@ -33,8 +33,14 @@ module.exports = function(app) {
   app.use(bodyParser.json());
   app.use(methodOverride());
   app.use(cookieParser());
+  
+  // Add passport auth library
   app.use(passport.initialize());
+  app.use(passport.session());
+
+  // Enable CORS 
   app.use(cors());
+  
   // Persist sessions with mongoStore / sequelizeStore
   // We need to enable sessions for passport-twitter because it's an
   // oauth 1.0 strategy, and Lusca depends on sessions
@@ -44,7 +50,9 @@ module.exports = function(app) {
     resave: false,
     store: new mongoStore({
       mongooseConnection: mongoose.connection,
-      db: 'gestion-web2-end-point'
+      //db: 'gestion-web2-end-point'
+      db: 'gestionweb2'
+
     })
   }));
 
@@ -52,17 +60,25 @@ module.exports = function(app) {
    * Lusca - express server security
    * https://github.com/krakenjs/lusca
    */
+//  if ('test' !== env) {
+//    app.use(lusca({
+//      csrf: {
+//        angular: true
+//      },
+//      xframe: 'SAMEORIGIN',
+//      hsts: {
+//        maxAge: 31536000, //1 year, in seconds
+//        includeSubDomains: true,
+//        preload: true
+//      },
+//      xssProtection: true
+//    }));
+//  }
+  // Disable csrf   
   if ('test' !== env) {
     app.use(lusca({
-      csrf: {
-        angular: true
-      },
+      csrf: false,
       xframe: 'SAMEORIGIN',
-      hsts: {
-        maxAge: 31536000, //1 year, in seconds
-        includeSubDomains: true,
-        preload: true
-      },
       xssProtection: true
     }));
   }

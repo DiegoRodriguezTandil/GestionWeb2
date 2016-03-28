@@ -13,6 +13,7 @@ describe('User API:', function() {
       user = new User({
         name: 'Fake User',
         email: 'test@example.com',
+        username: 'test',
         password: 'password'
       });
 
@@ -50,7 +51,7 @@ describe('User API:', function() {
         .expect(200)
         .expect('Content-Type', /json/)
         .end(function(err, res) {
-           res.body._id.toString()  .should.equal( user._id.toString() );
+          res.body._id.toString().should.equal( user._id.toString() );
           done();
         });
     });

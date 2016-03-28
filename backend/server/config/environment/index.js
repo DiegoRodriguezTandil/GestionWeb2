@@ -29,7 +29,8 @@ var all = {
 
   // Secret for session, you will want to change this and make it an environment variable
   secrets: {
-    session: 'gestion-web2-end-point-secret'
+    // session: 'gestion-web2-end-point-secret'
+    session: 'gdaskljASLKalskdAKLSDMlkmdat'
   },
 
   // MongoDB connection options

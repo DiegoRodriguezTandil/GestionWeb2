@@ -1,14 +1,15 @@
 import passport from 'passport';
 import {Strategy as LocalStrategy} from 'passport-local';
 
-function localAuthenticate(User, email, password, done) {
+function localAuthenticate(User, username, password, done) {
+console.log(username+' - '+password);    
   User.findOneAsync({
-    email: email.toLowerCase()
+    username: username.toLowerCase()
   })
     .then(function(user) {
       if (!user) {
         return done(null, false, {
-          message: 'This email is not registered.'
+          message: 'El usuario no esta registrado.'
         });
       }
       user.authenticate(password, function(authError, authenticated) {
@@ -17,7 +18,7 @@ function localAuthenticate(User, email, password, done) {
         }
         if (!authenticated) {
           return done(null, false, {
-            message: 'This password is not correct.'
+            message: 'La contraseña es incrorrecta.'
           });
         } else {
           return done(null, user);
@@ -31,9 +32,9 @@ function localAuthenticate(User, email, password, done) {
 
 exports.setup = function(User, config) {
   passport.use(new LocalStrategy({
-    usernameField: 'email',
+    usernameField: 'username',
     passwordField: 'password' // this is the virtual field on the model
-  }, function(email, password, done) {
-    return localAuthenticate(User, email, password, done);
+  }, function(username, password, done) {
+    return localAuthenticate(User, username, password, done);
   }));
 };

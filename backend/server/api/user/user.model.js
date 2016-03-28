@@ -14,6 +14,10 @@ var UserSchema = new Schema({
     type: String,
     default: 'user'
   },
+  username: {
+    type: String,
+    lowercase: true
+  },
   password: String,
   provider: String,
   salt: String
@@ -52,14 +56,21 @@ UserSchema
   .path('email')
   .validate(function(email) {
     return email.length;
-  }, 'Email cannot be blank');
+  }, 'El mail no puede ser vacio');
+
+// Validate empty username
+UserSchema
+  .path('username')
+  .validate(function(username) {
+    return username.length;
+  }, 'El nombre de usuario no puede ser vacio');
 
 // Validate empty password
 UserSchema
   .path('password')
   .validate(function(password) {
     return password.length;
-  }, 'Password cannot be blank');
+  }, 'La contraseña no puede ser vacia');
 
 // Validate email is not taken
 UserSchema
@@ -79,7 +90,27 @@ UserSchema
       .catch(function(err) {
         throw err;
       });
-  }, 'The specified email address is already in use.');
+  }, 'El nombre de usuario se encuentra en uso.');
+  
+// Validate username is not taken
+UserSchema
+  .path('username')
+  .validate(function(value, respond) {
+    var self = this;
+    return this.constructor.findOneAsync({ username: value })
+      .then(function(user) {
+        if (user) {
+          if (self.id === user.id) {
+            return respond(true);
+          }
+          return respond(false);
+        }
+        return respond(true);
+      })
+      .catch(function(err) {
+        throw err;
+      });
+  }, 'El nombre de usuario se encuentra en uso.');
 
 var validatePresenceOf = function(value) {
   return value && value.length;
