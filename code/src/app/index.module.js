@@ -26,7 +26,9 @@
             // Functionality
             'app.sample',
 
-            // Apps
+            // Apps - Qwavee Modules & Services
+            'app.qwavee.auth',
+            
             'app.qwavee.ventas',
             
             'app.qwavee.login',  

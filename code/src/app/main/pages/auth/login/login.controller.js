@@ -7,11 +7,13 @@
         .controller('LoginController', LoginController);
 
     /** @ngInject */
-    function LoginController()
+    function LoginController(authService)
     {
         // Data
+        
 
         // Methods
+        
 
         //////////
     }

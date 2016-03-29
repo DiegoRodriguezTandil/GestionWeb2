@@ -38,24 +38,24 @@
         );
         // Methods
         
-        vm.sendLoginInfo = function(){
-            api.auth.save(
-                {
-                    'username': 'test',
-                    'password': 'test'
-                },
-                function(response)
-                {
-                    console.log(response);
-                    vm.clientes = response;
-                },
-                function(error)
-                {
-                    console.log(error);
-                    vm.error = error;
-                }
-            );
-        }
+//        vm.sendLoginInfo = function(){
+//            api.auth.save(
+//                {
+//                    'username': 'test',
+//                    'password': 'test'
+//                },
+//                function(response)
+//                {
+//                    console.log(response);
+//                    vm.clientes = response;
+//                },
+//                function(error)
+//                {
+//                    console.log(error);
+//                    vm.error = error;
+//                }
+//            );
+//        }
     }
         
 })();
