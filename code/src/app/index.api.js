@@ -178,10 +178,13 @@
         var api = {};
 
         // Base Url
-        api.baseUrl = 'app/data/';
+        api.baseUrl = 'http://localhost:9000';
         
+        // Auth API
+        api.auth = $resource(api.baseUrl + '/auth/local/');
+
         // Cliente API
-        api.clientes = $resource('http://localhost:9000/api/v1/customers/',{},
+        api.clientes = $resource(api.baseUrl + '/api/v1/customers/',{},
             {
                 get: {
                     method:'GET', 

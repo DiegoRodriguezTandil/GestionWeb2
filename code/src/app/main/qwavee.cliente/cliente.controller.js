@@ -4,8 +4,7 @@
 
     angular
         .module('app.qwavee.cliente')
-        .controller('ClienteController', ClienteController)
-        .factory('ClienteService', ClienteServiceFn);
+        .controller('ClienteController', ClienteController);
 
     /** @ngInject */
     function ClienteController(hotkeys, api)
@@ -38,7 +37,25 @@
             }
         );
         // Methods
-
+        
+        vm.sendLoginInfo = function(){
+            api.auth.save(
+                {
+                    'username': 'test',
+                    'password': 'test'
+                },
+                function(response)
+                {
+                    console.log(response);
+                    vm.clientes = response;
+                },
+                function(error)
+                {
+                    console.log(error);
+                    vm.error = error;
+                }
+            );
+        }
     }
         
 })();
