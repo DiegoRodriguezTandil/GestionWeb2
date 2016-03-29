@@ -33,24 +33,6 @@
         // Api
         msApiProvider.register('ciudad', ['app/data/ciudad/ciudad.json']);
 
-//        // Navigation
-//        msNavigationServiceProvider.saveItem('fuse', {
-//            title : 'Ciudad',
-//            group : true,
-//            weight: 1
-//        });
-//        
-
-        msNavigationServiceProvider.saveItem('fuse.ciudad', {
-            title    : 'Ciudad',
-            icon     : 'icon-email',
-            state    : 'app.ciudad',
-            /*stateParams: {
-                'param1': 'page'
-             },*/
-//            translate: 'SAMPLE.SAMPLE_NAV',
-            weight   : 1
-        });
 
     }
 })();

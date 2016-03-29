@@ -37,39 +37,38 @@
         // Api
         msApiProvider.register('sample', ['app/data/sample/sample.json']);
 
-        // Navigation
-        msNavigationServiceProvider.saveItem('fuse.project', {
-            title: 'Casa Sebastián',
-            state: 'app.dashboards_project',
-            icon : 'icon-home',
-            weight: 1
-        });
-        
-        msNavigationServiceProvider.saveItem('fuse', {
-            title : 'SAMPLE',
-            group : true,
+//        // Navigation
+//        msNavigationServiceProvider.saveItem('fuse.project', {
+//            title: 'Casa Sebastián',
+//            state: 'app.dashboards_project',
+//            icon : 'icon-home',
 //            weight: 1
-        });
+//        });
+//        
+//        msNavigationServiceProvider.saveItem('fuse', {
+//            title : 'SAMPLE',
+//            group : true,
+////            weight: 1
+//        });
+//        
+//
+//        msNavigationServiceProvider.saveItem('fuse.sample', {
+//            title    : 'Sample',
+//            icon     : 'icon-tile-four',
+//            state    : 'app.sample',
+//            /*stateParams: {
+//                'param1': 'page'
+//             },*/
+//            translate: 'SAMPLE.SAMPLE_NAV',
+//            weight   : 1
+//        });
+//       
+//
+//        msNavigationServiceProvider.saveItem('fuse.project', {
+//            title: 'Project',
+//            state: 'app.dashboards_project',
+//            icon : 'icon-home',
+//        });
         
-
-        msNavigationServiceProvider.saveItem('fuse.sample', {
-            title    : 'Sample',
-            icon     : 'icon-tile-four',
-            state    : 'app.sample',
-            /*stateParams: {
-                'param1': 'page'
-             },*/
-            translate: 'SAMPLE.SAMPLE_NAV',
-            weight   : 1
-        });
-       
-
-        msNavigationServiceProvider.saveItem('fuse.project', {
-            title: 'Project',
-            state: 'app.dashboards_project',
-            icon : 'icon-home',
-        });
-
-
     }
 })();

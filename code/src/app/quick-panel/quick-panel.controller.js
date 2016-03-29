@@ -7,7 +7,7 @@
         .controller('QuickPanelController', QuickPanelController);
 
     /** @ngInject */
-    function QuickPanelController(msApi)
+    function QuickPanelController(msApi, $rootScope)
     {
         var vm = this;
 
