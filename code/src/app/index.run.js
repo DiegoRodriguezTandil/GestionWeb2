@@ -39,6 +39,7 @@
     function loginRedirect($rootScope, $location, userService)
     {
         $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+            debugger;
             if (!userService.isLogged()) {
                 var filename = next.substring(next.lastIndexOf('/')+1);
                 if ( filename === "login") {

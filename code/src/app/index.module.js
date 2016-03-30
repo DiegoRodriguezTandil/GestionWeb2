@@ -26,6 +26,9 @@
             // Functionality
             'app.sample',
 
+            // Fuse Elements
+            'app.dashboards',
+            
             // Apps - Qwavee Modules & Services
             'app.qwavee.auth',
             

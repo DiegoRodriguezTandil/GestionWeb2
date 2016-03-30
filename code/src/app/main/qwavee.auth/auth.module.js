@@ -43,6 +43,7 @@
     function AuthService(api, userService, $location)
     {
         var login = function(user){
+            
             return api.auth.save(
                 user,
                 function(response)

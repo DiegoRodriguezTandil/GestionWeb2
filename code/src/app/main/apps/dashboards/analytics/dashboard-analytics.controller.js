@@ -7,7 +7,7 @@
         .controller('DashboardAnalyticsController', DashboardAnalyticsController);
 
     /** @ngInject */
-    function DashboardAnalyticsController(DashboardData, uiGmapGoogleMapApi)
+    function DashboardAnalyticsController(DashboardData) //, uiGmapGoogleMapApi)
     {
         var vm = this;
 
@@ -313,10 +313,10 @@
         //////////
 
         // Widget 2
-        uiGmapGoogleMapApi.then(function ()
-        {
-            vm.widget2.map = vm.dashboardData.widget2.map;
-        });
+//        uiGmapGoogleMapApi.then(function ()
+//        {
+//            vm.widget2.map = vm.dashboardData.widget2.map;
+//        });
     }
 
 })();
