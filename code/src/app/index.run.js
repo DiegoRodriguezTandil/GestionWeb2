@@ -4,7 +4,8 @@
 
     angular
         .module('fuse')
-        .run(runBlock);
+        .run(runBlock)
+        .run(loginRedirect);
 
     /** @ngInject */
     function runBlock($rootScope, $timeout, $state)
@@ -34,4 +35,19 @@
             stateChangeSuccessEvent();
         });
     }
+    
+    function loginRedirect($rootScope, $location, userService)
+    {
+        $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+            if (!userService.isLogged()) {
+                var filename = next.substring(next.lastIndexOf('/')+1);
+                if ( filename === "login") {
+                } else {
+                    event.preventDefault();
+                    $location.path("/pages/auth/login");
+                }
+            }
+        });
+    }
+
 })();

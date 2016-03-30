@@ -7,7 +7,7 @@
         .controller('ToolbarController', ToolbarController);
 
     /** @ngInject */
-    function ToolbarController($rootScope, $mdSidenav, $translate, $mdToast)
+    function ToolbarController($rootScope, $mdSidenav, $translate, $mdToast, authService)
     {
         var vm = this;
 
@@ -113,7 +113,8 @@
          */
         function logout()
         {
-            // Do logout here..
+            // Qwavee Service to User Logout
+            authService.logout();
         }
 
         /**

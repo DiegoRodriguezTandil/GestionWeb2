@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('app.qwavee.cliente', ['ngResource'])
+        .module('app.qwavee.cliente', [])
         .config(config);
 
     /** @ngInject */

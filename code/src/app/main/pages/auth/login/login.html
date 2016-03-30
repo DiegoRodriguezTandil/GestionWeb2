@@ -9,7 +9,7 @@
 
             <form name="loginForm" novalidate>
                 <md-input-container class="md-block" md-no-float>
-                    <input type="username" name="username" ng-model="vm.form.username" placeholder="Email"
+                    <input type="username" name="username" ng-model="vm.user.username" placeholder="Nombre de Usuario"
                            translate translate-attr-placeholder="Usuario" required>
                     <div ng-messages="loginForm.email.$error" role="alert" multiple>
                         <div ng-message="required">
@@ -19,7 +19,7 @@
                 </md-input-container>
 
                 <md-input-container class="md-block" md-no-float>
-                    <input type="password" name="password" ng-model="vm.form.password" placeholder="Contraseña"
+                    <input type="password" name="password" ng-model="vm.user.password" placeholder="Contraseña"
                            translate translate-attr-placeholder="Contraseña"
                            required>
                     <div ng-messages="loginForm.password.$error" role="alert">
@@ -41,7 +41,8 @@
 
                 <md-button type="submit" class="md-raised md-accent submit-button" aria-label="LOG IN"
                            ng-disabled="loginForm.$invalid || loginForm.$pristine"
-                           translate="LOGIN.LOG_IN" translate-attr-aria-label="LOGIN.LOG_IN">
+                           translate="LOGIN.LOG_IN" translate-attr-aria-label="LOGIN.LOG_IN"
+                           ng-click="vm.loginAction()" >
                     Ingresar
                 </md-button>
             </form>

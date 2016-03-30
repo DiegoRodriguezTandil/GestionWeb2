@@ -31,7 +31,7 @@
             
             'app.qwavee.ventas',
             
-            'app.qwavee.login',  
+//            'app.qwavee.login',  
             'app.pages.auth.login',
 
             'app.ciudad',
