@@ -7,7 +7,7 @@
         .controller('ToolbarController', ToolbarController);
 
     /** @ngInject */
-    function ToolbarController($rootScope, $mdSidenav, $translate, $mdToast, authService)
+    function ToolbarController($rootScope, $mdSidenav, $translate, $mdToast, authService, $window, $timeout, $state)
     {
         var vm = this;
 
@@ -115,6 +115,10 @@
         {
             // Qwavee Service to User Logout
             authService.logout();
+            console.log('Saliendo!');
+            //$location.path('/cliente');
+//            $window.location.assign("/facturacion");            
+$state.transitionTo('app.facturacion');
         }
 
         /**

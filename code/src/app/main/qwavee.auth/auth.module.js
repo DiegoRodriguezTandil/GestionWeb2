@@ -40,28 +40,29 @@
         };
     }
 
-    function AuthService(api, userService, $location)
+    function AuthService(api, userService, $q)
     {
         var login = function(user){
-            
-            return api.auth.save(
+            var deferred = $q.defer();
+            api.auth.save(
                 user,
                 function(response)
                 {
+                    console.log(response);
                     userService.saveToken(response.token);
-                    $location.path('/cliente');
+                    deferred.resolve(response);
+                    //tratar errores de login
                 },
                 function(error)
                 {
-                    console.log(error);
-                    vm.error = error;
+                    deferred.reject(error);
                 }
             );    
+            return deferred.promise;
         }
 
         var logout = function(){
             userService.removeToken();
-            $location.path('/');
         }
                 
         return {

@@ -11,7 +11,7 @@
     {
         $locationProvider.html5Mode(true);
 
-        $urlRouterProvider.otherwise('/inicio');
+        $urlRouterProvider.otherwise('/cliente');
 
         /**
          * Layout Style Switcher

@@ -19,8 +19,18 @@
 
         // Methods
         vm.loginAction = function(){
-            console.log(vm.user);
-            authService.login(vm.user);
+            authService
+                .login(vm.user)
+                .then(
+                    function(result){
+                        console.log(result);
+                        $location.path('/cliente');
+                    },
+                    function(error){
+                        console.log(error);
+                    }
+                );
+                        
         }
 
         //////////

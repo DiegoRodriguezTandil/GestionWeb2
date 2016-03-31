@@ -36,16 +36,29 @@
         });
     }
     
-    function loginRedirect($rootScope, $location, userService)
+    function loginRedirect($rootScope, $state, $location, userService, $timeout)
     {
-        $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-            debugger;
+        $rootScope.$on("$routeChangeSuccess", function() {
+    console.log('$routeChangeSuccess');
+  });
+
+  $rootScope.$on("$routeChangeError", function(event, current, previous, eventObj) {
+          console.log('$routeChangeError');
+
+  });
+        $rootScope.$on( "$stateChangeStart", function(event, toState, toParams, fromState, fromParams, options) {
             if (!userService.isLogged()) {
-                var filename = next.substring(next.lastIndexOf('/')+1);
+                var filename = toState.url.substring(toState.url.lastIndexOf('/')+1);
                 if ( filename === "login") {
                 } else {
+                    console.log('Redirigido a Login');
+                    console.log(toState);
                     event.preventDefault();
-                    $location.path("/pages/auth/login");
+                    $state.transitionTo('app.pages_auth_login');
+//$timeout(function(){ 
+//                       $location.path("/pages/auth/login");
+//
+//},0);                    
                 }
             }
         });

@@ -179,6 +179,9 @@
 
         // Base Url
         api.baseUrl = 'http://localhost:9000';
+        //Koqui
+        //api.baseUrl = 'http://192.168.1.22:9000';
+        
         
         // Auth API
         api.auth = $resource(api.baseUrl + '/auth/local/');
